@@ -1,0 +1,146 @@
+<!-- templates/predict.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Disease Prediction</title>
+    <style>
+        /* CSS for styling the prediction page */
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form label {
+            display: block;
+            text-align: left;
+            margin: 12px 0 6px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        form input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Heart Disease Prediction</h2>
+        <form method="POST" action="{% url 'predict' %}">
+            {% csrf_token %}
+            <label>High BP:</label>
+            <input type="number" name="HighBP" required>
+            
+            <label>High Chol:</label>
+            <input type="number" name="HighChol" required>
+            
+            <label>Chol Check:</label>
+            <input type="number" name="CholCheck" required>
+            
+            <label>BMI:</label>
+            <input type="number" step="0.1" name="BMI" required>
+            
+            <label>Smoker:</label>
+            <input type="number" name="Smoker" required>
+            
+            <label>Stroke:</label>
+            <input type="number" name="Stroke" required>
+            
+            <label>Diabetes:</label>
+            <input type="number" name="Diabetes" required>
+            
+            <label>Physical Activity:</label>
+            <input type="number" name="PhysActivity" required>
+            
+            <label>Fruits:</label>
+            <input type="number" name="Fruits" required>
+            
+            <label>Veggies:</label>
+            <input type="number" name="Veggies" required>
+            
+            <label>Heavy Alcohol Consumption:</label>
+            <input type="number" name="HvyAlcoholConsump" required>
+            
+            <label>Any Healthcare:</label>
+            <input type="number" name="AnyHealthcare" required>
+            
+            <label>No Doctor because of Cost:</label>
+            <input type="number" name="NoDocbcCost" required>
+            
+            <label>General Health:</label>
+            <input type="number" name="GenHlth" required>
+            
+            <label>Mental Health:</label>
+            <input type="number" name="MentHlth" required>
+            
+            <label>Physical Health:</label>
+            <input type="number" name="PhysHlth" required>
+            
+            <label>Difficulty Walking:</label>
+            <input type="number" name="DiffWalk" required>
+            
+            <label>Sex:</label>
+            <input type="number" name="Sex" required>
+            
+            <label>Age:</label>
+            <input type="number" name="Age" required>
+            
+            <label>Education:</label>
+            <input type="number" name="Education" required>
+            
+            <label>Income:</label>
+            <input type="number" name="Income" required>
+            
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
